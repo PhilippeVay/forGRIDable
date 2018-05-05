@@ -1,0 +1,33 @@
+/*
+ * forGRIDable.css - let's see what CSS3 Grid layout and Custom Properties ("CSS3 variables") can achieve
+ *
+ * Author: Ph. Vayssière
+ * License: M.I.T.
+ */
+
+@supports (grid-area: auto) {
+  .grid {
+    --nb-col: 12;
+    --gap-rows: 0.5rem;
+    --gap-columns: 1rem;
+    --gap: var(--gap-rows) var(--gap-columns);
+    grid-template-columns: repeat(var(--nb-col), 1fr);
+    grid-gap: var(--gap);
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1230px;
+  }
+
+  @media (min-width: 576px) {
+    .grid {
+      display: grid;
+    }
+  }
+
+  .grid > * {
+    grid-column: var(--col-start);
+    grid-column-end: span var(--col);
+    grid-row: var(--row-start);
+    grid-row-end: span var(--row);
+  }
+}
