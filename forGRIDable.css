@@ -21,9 +21,11 @@
   }
 
   .grid > * {
-    grid-column: var(--col-start);
-    grid-column-end: span var(--col);
-    grid-row: var(--row-start);
-    grid-row-end: span var(--row);
+    /* Uncomment if you want to support nested grids */
+    /*--row-start: auto;
+    --col-start: auto;
+    --row: 1;
+    --col: 1;*/
+    grid-area: var(--row-start, auto) / var(--col-start, auto) / span var(--row, 1) / span var(--col, 1);
   }
 }
